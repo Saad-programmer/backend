@@ -181,3 +181,12 @@ app.post("/login", (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Serveur backend lancé sur http://localhost:${port}`);
 });
+// at the very end of api/index.js (after all routes)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Express server listening on port ${PORT}`);
+  });
+}
+
+module.exports = app;
